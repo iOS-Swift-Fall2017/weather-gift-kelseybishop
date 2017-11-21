@@ -76,16 +76,16 @@ class DetailVC: UIViewController {
 extension DetailVC: CLLocationManagerDelegate {
     
     func getLocation(){
-        locationManger = CLLocationManager()
-        locationManger.delegate = self
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
     }
     
     func handleLocationAuthorizationStatus(status: CLAuthorizationStatus) {
         switch status {
         case .notDetermined:
-            locationManger.requestWhenInUseAuthorization()
+            locationManager.requestWhenInUseAuthorization()
         case .authorizedAlways, .authorizedWhenInUse:
-            locationManger.requestLocation()
+            locationManager.requestLocation()
         case .denied:
             showAlertToPrivacySettings(title: "User has not authorized location services", message: "Select 'Settings' below to open device settings and enable location services for this app.")
         case .restricted:
